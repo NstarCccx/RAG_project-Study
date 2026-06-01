@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# 向量数据库 Chroma
+chroma_db/
+chroma_db/**
+*.sqlite3
+*.db
+
 # C extensions
 *.so
 
