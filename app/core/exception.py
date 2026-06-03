@@ -49,7 +49,9 @@ async def global_exception_handler(request: Request, exc: Exception):
         同时记录错误日志便于排查问题。
     """
     # 记录错误日志（exc_info=True 会记录完整堆栈信息）
-    logger.error(f"全局异常：{str(exc)}", exc_info=True)
+    # 处理可能包含花括号的异常消息，避免 loguru format 错误
+    exc_str = str(exc).replace("{", "{{").replace("}", "}}")
+    logger.error(f"全局异常：{exc_str}", exc_info=True)
     
     # 返回统一错误格式
     return JSONResponse(

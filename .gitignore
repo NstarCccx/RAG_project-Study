@@ -9,6 +9,8 @@ chroma_db/**
 *.sqlite3
 *.db
 
+/static/uploads/
+
 # C extensions
 *.so
 
